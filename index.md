@@ -73,3 +73,63 @@ private:
     - Qt5Core.dll
     - Qt5Gui.dll
     - Qt5Widgets.dll
+
+## 2. 示例0 创建Qt工程
+
+演示如何创建一个简单的Qt工程
+- 基类的选择与区别
+- Qt工程的文件结构
+- 各种文件的代码解读
+- 窗口界面的设计与修改
+
+### 2.1 创建工程类选择
+
+![创建工程类选择](image/0-1.png)
+
+### 2.2 不同“基类”的差别
+
+![不同“基类”的差别](image/0-2.png)
+
+- **基类**有QMainWindow, QDialog, QWidget可选
+- QWidget是其他两个类的基类, 较为通用
+- QMainWindow是有菜单栏的窗口
+- QDialog显示一个临时的对话框
+
+### 2.3 Qt工程文件结构
+
+![Qt工程文件结构](image/0-3.png)
+
+### 2.4 头文件myhellodialog.h解读
+
+![头文件myhellodialog.h解读](image/0-4.png)
+
+
+### 2.5 主函数main.cpp解读
+
+![主函数main.cpp解读](image/0-5.png)
+
+### 2.6 类函数myhellodialog.cpp解读
+
+![类函数myhellodialog.cpp解读](image/0-6.png)
+
+
+### 2.7 窗口界面编辑
+
+![窗口界面编辑](image/0-7.png)
+
+
+### 2.8 窗口添加新组件
+
+![窗口添加新组件](image/0-8.png)
+
+
+### 2.9 修改组件内容(通过代码)
+
+![修改组件内容(通过代码)](image/0-9.png)
+
+
+### 2.10 修改组件内容(通过属性栏)
+
+![修改组件内容(通过属性栏)](image/0-10.png)
+
+![修改组件内容(通过属性栏)](image/0-11.png)
