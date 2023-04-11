@@ -1,42 +1,75 @@
+# QT入门文档
+
+## 1. QT基本介绍
+
+<!-- <div  align="center">    
+ <img src="image/intro-1.jpg" width = "180" height = "200" align=center />
+</div> -->
+
+![官网](image/intro-1.jpg)
+
+### 1.1 背景信息
+- 官网：https://www.qt.io/
+- 下载：https://download.qt.io/
+- 跨平台可视化开发工具(Winows/Mac/Linux/Android/IOS)
+
+- 有收费版和免费的开源版(OpensourcedistributionunderanLGPLorGPLlicense)
+- 免费版开发的桌面应用,发布时不要求开源,须带一些动态链接库,无法静态绑定到一个.exe文件
+- Qt是核心库,类比Python
+- QtCreator是IDE,用于开发桌面应用(如WPSoffice),类比Pycharm
+- QtQuick可用于开发移动应用
 
 
-Hi, I'm Hu Yuzhang. I am currently pursuing a Master degree at Peking University, advised by Prof. Jiaying Liu.
-My research interests include video compression and image enhancement.
-I am also interested in football, cycling, hiking, mystery novels, geography, and the history of ancient East Asia.
-You can contact me by mail: yuzhanghu@pku.edu.cn
-
-<!-- ### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-​``` -->
 
 
-### Education
+### 1.2 用Qt创建桌面工程
 
-- Bachelor in Computer Science, EECS, Peking University.
-- Master student in Computer Science, AAIS, Peking University.
+1. 运行Qt Creator
+![运行Qt Creator](image/intro-3.jpg)
+2. 新建Qt Widgets项目（即带窗口界面的项目）
+![新建Qt Widgets项目](image/intro-4.jpg)
+3. 指定文件夹和项目名称
+![指定文件夹和项目名称](image/intro-5.jpg)
+4. 指定一个源文件中的类名以及其基类(QMainWindow或QDialog...)
+![指定一个源文件中的类名以及其基类](image/intro-6.jpg)
+5. 工程创建完成
 
 
-### Publication
-- **Yuzhang Hu**, Wenhan Yang, Jiaying Liu, Zongming Guo. "Deep Inter Prediction with Error-Corrected Auto-Regressive Network for Video Coding", *ACM Transactions on Multimedia Computing Communications and Applications* (*TOMM*), March 2022. [[pdf]](https://doi.acm.org/?doi=3528173)
-- **Yuzhang Hu**, Wenhan Yang, Jiaying Liu, Zongming Guo. "Rain-Prior Injected Knowledge Distillation for Single Image Deraining", *Accepted by IEEE International Conference on Image Processing* (*ICIP*), Bordeaux, France, Oct. 2022. [[pdf]](http://39.96.165.147/Pub%20Files/2022/hyz_icip22.pdf)
-- **Yuzhang Hu**, Sifeng Xia, Wenhan Yang, Jiaying Liu. "Memory-Augmented Auto-Regressive Network for Frame Recurrent Inter Prediction", *IEEE International Symposium on Circuits and Systems* (*ISCAS*), Seville, Spain, May 2020. [[pdf]](http://39.96.165.147/Pub%20Files/2020/hyz_iscas20.pdf)
-- **Yuzhang Hu**, Sifeng Xia, Wenhan Yang, Jiaying Liu. "Sensitivity-Aware Bit Allocation for Intermediate Deep Feature Compression", *IEEE International Conference on Visual Communications and Image Processing* (*VCIP*), Macau, China, December 2020. [[pdf]](http://39.96.165.147/Pub%20Files/2020/hyz_vcip20.pdf)
 
+### 1.3 Qt项目文件组成
+
+- helloworld.pro 项目文件
+- hellodialog.h用户自定义类的头文件
+- hellodialog.cpp 用户自定义类的源文件
+- main.cpp 程序的入口文件, 包括main函数
+- hellodialog.ui程序的界面文件 (XML格式, 只能可视化编辑)
+
+**hellodialog.h 用户自定义类的头文件**
+```c++
+#ifndef HELLODIALOG_H
+#define HELLODIALOG_H
+namespace Ui {// 界面的名字空间
+    class HelloDialog;
+}
+class HelloDialog : public QDialog {
+    Q_OBJECT; //宏定义
+public:
+    explicit HelloDialog(QWiget * parent = 0);
+    ~HelloDialog();
+private:
+    Ui:: HelloDialog * ui;
+};
+
+#endif // HELLODIALOG_H
+```
+
+### 1.4 发布Qt编写的可执行程序
+
+1. 在左下角选择release版并编译,在release版文件夹下面得到.exe文件
+2. 将以下.dll文件和.exe文件放在同一文件夹下一起发布
+    - libgcc_s_dw2-1.dll
+    - libstdc++-6.dll
+    - libwinpthread-1.dll (也可能不要)
+    - Qt5Core.dll
+    - Qt5Gui.dll
+    - Qt5Widgets.dll
