@@ -1,6 +1,6 @@
 
 
-## 1. QT基本介绍
+## QT基本介绍
 
 <!-- <div  align="center">    
  <img src="image/intro-1.jpg" width = "180" height = "200" align=center />
