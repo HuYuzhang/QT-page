@@ -79,5 +79,3 @@ layout: default
 
 **属性栏修改组件后myhellodialog.ui内容的变化**
 ![修改组件内容(F:\STRUCT\Code\QT-page\image\0-11.png)](image/0-11.png)
-
-本节代码下载链接：
